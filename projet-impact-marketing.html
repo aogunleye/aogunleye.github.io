@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="fr" data-bs-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analyse Impact Marketing | Abdul. O Archive</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body{background-color:#f8f9fa;color:#333;transition:0.3s;padding-top:100px;}
+        [data-bs-theme="dark"] body{background-color:#121212;color:#f8f9fa;}
+        
+        .navbar{background:rgba(255,255,255,0.9);border-bottom:1px solid #eee;backdrop-filter:blur(10px);}
+        [data-bs-theme="dark"] .navbar{background:rgba(18,18,18,0.9);border-bottom:1px solid #333;}
+        
+        #themeBtn{cursor:pointer;border:none;background:none;font-size:1.2rem;}
+
+        .project-box{border:1px solid #ddd;padding:30px;background:#fff;transition:0.3s;}
+        [data-bs-theme="dark"] .project-box{border-color:#333;background:#1a1a1a;}
+    </style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg fixed-top">
+    <div class="container">
+        <a class="navbar-brand fw-bold" href="index.html">Abdul. O Archive</a>
+        <div class="d-flex align-items-center order-lg-3">
+            <button id="themeBtn">☀️</button>
+            <button class="navbar-toggler ms-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"><span class="navbar-toggler-icon"></span></button>
+        </div>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <div class="navbar-nav">
+                <a class="nav-link px-3" href="propos.html">A Propos</a>
+                <a class="nav-link px-3" href="experiences.html">Expériences</a>
+                <a class="nav-link px-3" href="competences.html">Compétences</a>
+                <a class="nav-link px-3" href="loisirs.html">Loisirs</a>
+                <div class="vr mx-2 d-none d-lg-block text-secondary"></div>
+                <a class="nav-link px-3 active" href="portfolio.html">Portfolio</a>
+                <a class="nav-link px-3" href="articles.html">Écrits</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<main class="container py-5" style="max-width:900px;">
+    <div class="project-box shadow-sm">
+        <small class="text-muted">CRM / MARKETING / EXPÉRIENCE PRO</small>
+        <h2 class="fw-bold mt-2 mb-4">Analyse d'impact marketing : Campagne RCS vs SMS (A/B Testing)</h2>
+        
+        <div class="mb-5">
+            <h5 class="fw-bold text-uppercase">1. Contexte du projet</h5>
+            <p class="text-muted small">Pendant mon alternance au pôle CRM, l'entreprise a voulu comparer l'efficacité du nouveau format de message RCS (Rich Communication Services) par rapport au SMS classique. Pour cela, on a lancé un test grandeur nature lors d'une opération commerciale ("Jeudi Plus Lessive"). On a envoyé un message RCS interactif à environ 400 000 clients, et un SMS standard à un autre groupe de contrôle. Le but était de voir quel groupe allait faire le plus d'achats après avoir reçu le message.</p>
+        </div>
+
+        <div class="mb-5">
+            <h5 class="fw-bold text-uppercase">2. Objectifs et Contraintes</h5>
+            <p class="text-muted small"><strong>Objectifs :</strong></p>
+            <ul class="text-muted small">
+                <li>Cibler et extraire les listes de clients (le groupe test et le groupe de contrôle) depuis nos bases de données.</li>
+                <li>Relier les données d'envoi des messages avec les tickets de caisse pour mesurer l'impact réel sur les ventes.</li>
+                <li>Créer un tableau de bord automatique et facile à utiliser sur Google Sheets pour présenter les résultats aux équipes.</li>
+                <li>Faire des tests statistiques pour vérifier que la différence de résultats entre le RCS et le SMS est bien réelle et n'est pas due au hasard.</li>
+            </ul>
+            <p class="text-muted small"><strong>Contraintes :</strong></p>
+            <ul class="text-muted small">
+                <li>Travailler rapidement car le projet devait être rendu en moins d'une semaine.</li>
+                <li>Gérer d'énormes volumes de données (plusieurs centaines de milliers de lignes) avec des requêtes SQL rapides.</li>
+                <li>Respecter la confidentialité et la sécurité des données des clients.</li>
+            </ul>
+        </div>
+
+        <div class="mb-5">
+            <h5 class="fw-bold text-uppercase">3. Compétences travaillées & Montée en compétence</h5>
+            <p class="text-muted small">Cette mission m'a permis de développer plusieurs compétences concrètes en analyse de données pour le marketing :</p>
+            <ul class="text-muted small">
+                <li><strong>Préparation des données (SQL & Dataiku) :</strong> J'ai créé des workflows pour lier automatiquement les tables des campagnes marketing avec les données d'achats.</li>
+                <li><strong>Statistiques (Python) :</strong> J'ai fait des calculs pour valider scientifiquement les résultats de l'A/B test.</li>
+                <li><strong>Visualisation de données :</strong> J'ai construit un outil de suivi sur mesure et agréable à utiliser sur Google Sheets.</li>
+            </ul>
+            <p class="text-muted small">Le plus difficile a été de lier des données provenant de sources totalement différentes (les rapports d'envoi des messages d'un côté et les achats en magasin de l'autre). Pour y arriver, j'ai utilisé Dataiku pour nettoyer et harmoniser les données avant de lancer l'analyse. J'ai ensuite utilisé Python pour automatiser les calculs statistiques (comme la p-value) et garantir que les résultats soient fiables. Ce projet m'a vraiment appris à faire des analyses statistiques avancées dans un vrai contexte d'entreprise.</p>
+        </div>
+
+        <div class="mb-5">
+            <h5 class="fw-bold text-uppercase">4. Commentaire des résultats</h5>
+            <p class="text-muted small">Même si les chiffres exacts doivent rester confidentiels, l'étude a apporté des réponses claires à l'entreprise :</p>
+            <ul class="text-muted small">
+                <li><strong>Mesure de l'impact :</strong> L'analyse a bien montré une vraie différence de résultats entre le format RCS (plus visuel avec des images ou des boutons) et le SMS classique.</li>
+                <li><strong>Validation scientifique :</strong> Les calculs faits avec Python ont prouvé que l'écart n'était pas un coup de chance, ce qui aide l'entreprise à décider où investir son budget marketing à l'avenir.</li>
+                <li><strong>Utilisation du tableau de bord :</strong> Le tableau de bord final sur Google Sheets a été très bien adopté par l'équipe CRM, qui l'utilisera pour suivre les prochaines opérations facilement.</li>
+            </ul>
+        </div>
+
+        <div class="mb-5">
+            <h5 class="fw-bold text-uppercase">5. Preuves et Documents</h5>
+            <p class="text-muted small fst-italic mb-3">⚠️ Note de confidentialité : Ce projet ayant été réalisé en milieu professionnel, les données réelles, les volumes financiers et les accès aux tableaux de bord ont été masqués et anonymisés pour des raisons évidentes de sécurité.</p>
+            
+            <div class="pt-2 border-top">
+                <h6 class="fw-bold small mb-2">Les livrables techniques suivants ont été produits :</h6>
+                <ul class="list-unstyled mb-0">
+                    <li class="text-muted small mb-1"><strong>Flux Dataiku & Requêtes SQL :</strong> Workflows d'extraction et de préparation des listes de clients dans la base de données.</li>
+                    <li class="text-muted small mb-1"><strong>Scripts Python :</strong> Code utilisé pour réaliser les calculs de validation statistique.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="pt-4 border-top text-center">
+            <a href="portfolio.html" class="btn btn-sm btn-outline-dark rounded-0">RETOUR AU PORTFOLIO</a>
+        </div>
+    </div>
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    const themeBtn=document.getElementById('themeBtn');
+    const html=document.documentElement;
+
+    const updateIcon=(t)=>{themeBtn.innerHTML=t==='light'?'☀️':'🌙';};
+
+    const savedTheme=localStorage.getItem('theme')||'light';
+    html.setAttribute('data-bs-theme',savedTheme);
+    updateIcon(savedTheme);
+
+    themeBtn.addEventListener('click',()=>{
+        const n=html.getAttribute('data-bs-theme')==='light'?'dark':'light';
+        html.setAttribute('data-bs-theme',n); 
+        localStorage.setItem('theme',n);
+        updateIcon(n);});
+</script>
+</body>
+</html>

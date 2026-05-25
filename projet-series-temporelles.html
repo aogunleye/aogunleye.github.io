@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="fr" data-bs-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projet Séries Temporelles | Abdul. O Archive</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body{background-color:#f8f9fa;color:#333;transition:0.3s;padding-top:100px;}
+        [data-bs-theme="dark"] body{background-color:#121212;color:#f8f9fa;}
+        
+        .navbar{background:rgba(255,255,255,0.9);border-bottom:1px solid #eee;backdrop-filter:blur(10px);}
+        [data-bs-theme="dark"] .navbar{background:rgba(18,18,18,0.9);border-bottom:1px solid #333;}
+        
+        #themeBtn{cursor:pointer;border:none;background:none;font-size:1.2rem;}
+
+        .project-box{border:1px solid #ddd;padding:30px;background:#fff;transition:0.3s;}
+        [data-bs-theme="dark"] .project-box{border-color:#333;background:#1a1a1a;}
+        
+        .pdf-container {width:100%;height:600px;border:1px solid #ddd;margin-top:20px;}
+        [data-bs-theme="dark"] .pdf-container {border-color:#333;}
+    </style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg fixed-top">
+    <div class="container">
+        <a class="navbar-brand fw-bold" href="index.html">Abdul. O Archive</a>
+        <div class="d-flex align-items-center order-lg-3">
+            <button id="themeBtn">☀️</button>
+            <button class="navbar-toggler ms-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"><span class="navbar-toggler-icon"></span></button>
+        </div>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <div class="navbar-nav">
+                <a class="nav-link px-3" href="propos.html">A Propos</a>
+                <a class="nav-link px-3" href="experiences.html">Expériences</a>
+                <a class="nav-link px-3" href="competences.html">Compétences</a>
+                <a class="nav-link px-3" href="loisirs.html">Loisirs</a>
+                <div class="vr mx-2 d-none d-lg-block text-secondary"></div>
+                <a class="nav-link px-3 active" href="portfolio.html">Portfolio</a>
+                <a class="nav-link px-3" href="articles.html">Écrits</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<main class="container py-5" style="max-width:900px;">
+    <div class="project-box shadow-sm">
+        <small class="text-muted">STATISTIQUES / BUT2</small>
+        <h2 class="fw-bold mt-2 mb-4">Projet de séries temporelles</h2>
+        
+        <div class="mb-5">
+            <h5 class="fw-bold text-uppercase">1. Contexte du projet</h5>
+            <p class="text-muted small">Réalisé lors de ma deuxième année de BUT, ce projet de statistiques porte sur l'étude de données qui évoluent dans le temps. L'idée était d'analyser l'historique de ces données pour comprendre comment elles se comportent et, surtout, réussir à prédire leur évolution future.</p>
+        </div>
+
+        <div class="mb-5">
+            <h5 class="fw-bold text-uppercase">2. Objectifs et Contraintes</h5>
+            <p class="text-muted small">Mon objectif principal était de décortiquer ces données pour isoler trois choses : la tendance générale (est-ce que ça monte ou ça descend sur le long terme ?), la saisonnalité (les éléments qui se répètent chaque année ou chaque mois) et les variations imprévisibles.</p>
+            <p class="text-muted small">La principale contrainte était d'appliquer la bonne méthode mathématique. Il a fallu faire plusieurs tests pour stabiliser les données et trouver le modèle de prévision le plus adapté (comme les modèles SARIMA ou le lissage exponentiel). Ensuite, il fallait vérifier minutieusement que notre modèle ne laissait aucune information importante de côté pour être sûr que nos prévisions soient fiables.</p>
+        </div>
+
+        <div class="mb-5">
+            <h5 class="fw-bold text-uppercase">3. Compétences travaillées & Montée en compétence</h5>
+            <p class="text-muted small">Ce projet m'a fait travailler plusieurs compétences importantes :</p>
+            <ul class="text-muted small">
+                <li><strong>Modélisation mathématique :</strong> J'ai appris à utiliser des outils statistiques pour choisir le meilleur modèle de prévision possible parmi plusieurs options.</li>
+                <li><strong>Programmation :</strong> J'ai écrit des scripts informatiques pour automatiser les calculs et créer les prévisions.</li>
+                <li><strong>Création de graphiques :</strong> J'ai tracé des courbes claires qui montrent à la fois les données du passé, les données actuelles et les prévisions futures avec leur marge d'erreur.</li>
+            </ul>
+            <p class="text-muted small">La plus grande difficulté a été de lire et d'interpréter certains graphiques très complexes pour trouver les bons réglages du modèle mathématique. J'ai dû faire de nombreux essais et ajustements avant de trouver la bonne formule.</p>
+        </div>
+
+        <div class="mb-5">
+            <h5 class="fw-bold text-uppercase">4. Commentaire des résultats</h5>
+            <p class="text-muted small">Au final, le modèle choisi a très bien compris le comportement des données, que ce soit la tendance générale ou les effets de saison. En comparant les marges d'erreur de plusieurs modèles, j'ai pu garder le plus précis. Cela a permis d'obtenir des prédictions fiables pour l'avenir, tout en gardant une bonne idée de la marge d'erreur possible.</p>
+        </div>
+
+        <div class="mb-5">
+            <h5 class="fw-bold text-uppercase">5. Preuves et Documents</h5>
+            <p class="text-muted small mb-3">Voici le compte-rendu complet de l'étude, qui détaille tous les calculs et les graphiques de prévision :</p>
+            
+            <div class="ratio ratio-16x9 pdf-container">
+                <iframe src="tpsaev-soufane-ogunleye.pdf" title="Rapport Séries Temporelles" allowfullscreen></iframe>
+            </div>
+            
+            <style>
+    .download-link { transition: 0.2s; opacity: 1; }
+    .download-link:hover { opacity: 0.5; text-decoration: underline !important; }
+</style>
+
+<div class="mt-4 pt-3 border-top">
+    <h6 class="fw-bold small mb-2">Fichier source lié :</h6>
+    <ul class="list-unstyled mb-0">
+        <li class="small">
+            📁 Document d'évaluation et code d'analyse : 
+            <a href="tpsaev-soufane-ogunleye.pdf" download class="text-dark text-decoration-none download-link">
+                <code>[tpsaev-soufane-ogunleye.pdf]</code>
+            </a>
+        </li>
+    </ul>
+</div>
+        </div>
+
+        <div class="pt-4 border-top text-center">
+            <a href="portfolio.html" class="btn btn-sm btn-outline-dark rounded-0">RETOUR AU PORTFOLIO</a>
+        </div>
+    </div>
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    const themeBtn=document.getElementById('themeBtn');
+    const html=document.documentElement;
+
+    const updateIcon=(t)=>{themeBtn.innerHTML=t==='light'?'☀️':'🌙';};
+
+    const savedTheme=localStorage.getItem('theme')||'light';
+    html.setAttribute('data-bs-theme',savedTheme);
+    updateIcon(savedTheme);
+
+    themeBtn.addEventListener('click',()=>{
+        const n=html.getAttribute('data-bs-theme')==='light'?'dark':'light';
+        html.setAttribute('data-bs-theme',n); 
+        localStorage.setItem('theme',n);
+        updateIcon(n);});
+</script>
+</body>
+</html>
