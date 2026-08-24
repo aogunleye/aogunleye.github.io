@@ -293,20 +293,31 @@ text-align: center;
 
 .cv-downloads {
   display: flex;
-  gap: 1rem;
+  gap: 1.5rem;
   flex-wrap: wrap;
 }
 
 .btn-cv {
-  font-family: var(--font-body);
+  font-family: var(--font-heading);
   font-weight: 700;
   color: var(--text-color);
   text-decoration: none;
   font-size: 0.95rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 .btn-cv:hover {
   text-decoration: underline;
+}
+
+/* Style si tu utilises des images PNG */
+.flag-img {
+  width: 20px;
+  height: auto;
+  display: inline-block;
+  vertical-align: middle;
 }
 
 .project-card {
