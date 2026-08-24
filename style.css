@@ -286,6 +286,29 @@ text-align: center;
   opacity: 0.7;
 }
 
+/* Section /NOW dans About */
+.now-section {
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 1px dashed var(--border-color);
+}
+
+.now-timestamp {
+  font-size: 0.8rem;
+  opacity: 0.5;
+  margin-bottom: 1rem;
+}
+
+.now-text {
+  font-size: 1rem;
+  line-height: 1.6;
+  opacity: 0.9;
+}
+
+.now-text strong {
+  color: var(--accent-color);
+}
+
 /* ==========================================================================
    4. PAGE : PORTFOLIO
    ========================================================================== */
@@ -377,6 +400,36 @@ text-align: center;
 .iframe-container iframe {
   display: block;
   background: #fff;
+}
+
+.projects-link-container {
+  margin-top: 1rem;
+}
+
+.projects-link-container .btn {
+  display: inline-block;
+  padding: 0.8rem 1.4rem;
+  border: 1px solid var(--text-color);
+  color: var(--text-color);
+  text-decoration: none;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  transition: all 0.2s ease;
+}
+
+.projects-link-container .btn:hover {
+  background-color: var(--text-color);
+  color: var(--bg-color);
+}
+
+.portfolio-section {
+  margin-bottom: 2.5rem;
+}
+
+.portfolio-section .section-title {
+  margin-bottom: 1.2rem;
+  border-bottom: 1px dashed var(--border-color);
+  padding-bottom: 0.4rem;
 }
 
 /* ==========================================================================
