@@ -38,8 +38,8 @@ body {
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
-  opacity: 0.10;
-  filter: grayscale(100%) blur(4px);
+  opacity: 0.08;
+  filter: grayscale(100%) blur(10px);
   z-index: -1;
   pointer-events: none;
 }
