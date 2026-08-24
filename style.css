@@ -517,6 +517,27 @@ text-align: center;
   margin-top: 0.3rem;
 }
 
+/* PROJECTS */
+
+.project-links {
+  margin-top: 0.8rem;
+}
+
+.project-link {
+  font-family: var(--font-heading);
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--text-color);
+  text-decoration: none;
+  letter-spacing: 0.05em;
+  transition: opacity 0.2s ease;
+}
+
+.project-link:hover {
+  opacity: 0.6;
+  text-decoration: underline;
+}
+
 /* ==========================================================================
    7. MEDIA QUERIES
    ========================================================================== */
