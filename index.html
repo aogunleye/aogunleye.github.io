@@ -1,65 +1,70 @@
 <!DOCTYPE html>
-<html lang="fr" data-bs-theme="light">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Abdul. O Archive | Data Analyst</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    
-    <style>
-        /* reglages du corps de la page pour tout centrer */
-        body{background-color:#f8f9fa;color:#333;transition:0.3s;height:100vh;display:flex;align-items:center;}
-        
-        /* ici c'est pour le mode nuit */
-        [data-bs-theme="dark"] body{background-color:#121212;color:#f8f9fa;}
-
-        /* style de la barre de navigation */
-        .navbar{background:rgba(255,255,255,0.9);border-bottom:1px solid #eee;backdrop-filter:blur(10px);}
-        [data-bs-theme="dark"] .navbar{background:rgba(18,18,18,0.9);border-bottom:1px solid #333;}
-        
-        /* icone du bouton theme */
-        #themeBtn{cursor:pointer;border:none;background:none;font-size:1.2rem;}
-
-        /* bouton au milieu de l'ecran */
-        .btn-main{border:1px solid #000;color:#000;padding:12px 30px;text-decoration:none;transition:0.3s;font-weight:bold;}
-        [data-bs-theme="dark"] .btn-main{border-color:#fff;color:#fff;}
-        
-        /* effet au survol du bouton */
-        .btn-main:hover{background:#000;color:#fff;}
-        [data-bs-theme="dark"] .btn-main:hover{background:#fff;color:#000;}
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Abdul Ogunleye</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Chivo+Mono:wght@700;900&family=Cutive+Mono&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<nav class="navbar navbar-expand-lg fixed-top">
-    <div class="container">
-        <a class="navbar-brand fw-bold" href="index.html">Abdul. O Archive</a>
-        <div class="d-flex align-items-center order-lg-3">
-            <button id="themeBtn">☀️</button>
-        </div>
-    </div>
-</nav>
-<div class="container text-center">
-    <h1 class="display-1 fw-bold mb-4">Abdul. O Archive<span class="text-muted">.</span></h1>    
-    <a href="portfolio.html" class="btn-main">ENTRER DANS LE PORTFOLIO</a>
-</div>
-<script>
-    /* script pour que le bouton soleil/lune fonctionne */
-    const themeBtn=document.getElementById('themeBtn');
-    const html=document.documentElement;
+  <!-- Background overlay (Bauhaus cover) -->
+  <div class="bg-cover"></div>
 
-    const updateIcon=(t)=>{themeBtn.innerHTML=t==='light'?'☀️':'🌙';};
+  <div class="container">
+    <!-- Header -->
+    <header class="site-header">
+      <div class="brand">
+        <!-- SVG Enclume (Ogun) -->
+        <svg class="logo" viewBox="0 0 100 60" fill="none" stroke="currentColor" stroke-width="1.5">
+          <polygon points="10,15 90,15 80,30 55,30 65,50 35,50 45,30 20,30" />
+          <line x1="10" y1="15" x2="25" y2="30" />
+          <circle cx="10" cy="15" r="1.5" fill="currentColor" />
+          <circle cx="90" cy="15" r="1.5" fill="currentColor" />
+          <circle cx="50" cy="30" r="1.5" fill="currentColor" />
+          <circle cx="50" cy="50" r="1.5" fill="currentColor" />
+        </svg>
+        <h1 class="site-title">ABDUL OGUNLEYE</h1>
+      </div>
 
-    // on verifie si on a deja choisi un theme avant
-    const savedTheme=localStorage.getItem('theme')||'light';
-    html.setAttribute('data-bs-theme',savedTheme);
-    updateIcon(savedTheme);
+      <!-- Theme Switcher placeholder (Eden assets) -->
+      <button id="theme-toggle" aria-label="Toggle theme">
+        <span class="toggle-icon">☀</span>
+      </button>
+    </header>
 
-    // changer de couleur quand on clique
-    themeBtn.addEventListener('click',()=>{
-        const n=html.getAttribute('data-bs-theme')==='light'?'dark':'light';
-        html.setAttribute('data-bs-theme',n); 
-        localStorage.setItem('theme',n); // on garde le choix en memoire
-        updateIcon(n);});
-</script>
-</body></html>
+    <!-- Main Content / Intro -->
+    <main class="hero">
+      <p class="intro">
+        I’m Abdul and this website is where you'll find all my inspirations, projects, professional/academic experiences and more.
+      </p>
+
+      <!-- Centered Navigation -->
+      <nav class="main-nav">
+        <a href="about.html" class="btn">ABOUT ME</a>
+        <a href="portfolio.html" class="btn">PORTFOLIO</a>
+        <a href="blog.html" class="btn">BLOG</a>
+        <a href="curation.html" class="btn">CURATION</a>
+      </nav>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+      <div class="footer-links">
+        <a href="mailto:abdul.ogunleye@outlook.fr">EMAIL</a> —
+        <a href="https://github.com/1ly4bd" target="_blank" rel="noopener">GITHUB</a> —
+        <a href="https://linkedin.com" target="_blank" rel="noopener">LINKEDIN</a>
+      </div>
+      <p class="credits">Illustrations by Eden</p>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
