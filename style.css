@@ -28,3 +28,291 @@
   cursor: pointer;
   font-family: inherit;
 }
+
+/* Navigation link for header title */
+.site-header a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Page Content Common */
+.page-content {
+  margin: 3rem 0;
+}
+
+.page-heading {
+  font-family: 'Chivo Mono', monospace;
+  font-weight: 900;
+  font-size: 1.6rem;
+  margin-bottom: 2.5rem;
+  border-bottom: 1px dashed var(--border-color);
+  padding-bottom: 0.5rem;
+}
+
+/* About Layout */
+.about-grid {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 2.5rem;
+  align-items: start;
+}
+
+@media (max-width: 650px) {
+  .about-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.portrait-container {
+  width: 100%;
+}
+
+.portrait-img {
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--text-color);
+  filter: grayscale(100%) contrast(120%);
+}
+
+.portrait-placeholder {
+  width: 100%;
+  aspect-ratio: 3/4;
+  border: 1px dashed var(--text-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Chivo Mono', monospace;
+  font-size: 0.85rem;
+  opacity: 0.6;
+}
+
+.bio-text p {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+}
+
+.bio-text strong {
+  color: #fff;
+}
+
+.contact-box {
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border-color);
+}
+
+.contact-box a {
+  color: var(--text-color);
+}
+
+.social-links {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.social-links a {
+  font-family: 'Chivo Mono', monospace;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.social-links a:hover {
+  text-decoration: underline;
+}
+
+/* Back button */
+.sub-nav {
+  margin-top: 3rem;
+}
+
+.btn-back {
+  font-family: 'Chivo Mono', monospace;
+  color: var(--text-color);
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+.btn-back:hover {
+  text-decoration: underline;
+}
+
+/* Portfolio Specifics */
+.portfolio-section {
+  margin-bottom: 3.5rem;
+}
+
+.section-title {
+  font-family: 'Chivo Mono', monospace;
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 1.2rem;
+  color: var(--accent-color);
+}
+
+/* Tags List */
+.tags-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.tags-list li {
+  border: 1px solid var(--border-color);
+  padding: 0.4rem 0.8rem;
+  font-size: 0.9rem;
+  background: rgba(255, 255, 255, 0.03);
+}
+
+/* CV Links */
+.cv-intro {
+  margin-bottom: 1rem;
+}
+
+.cv-downloads {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.btn-cv {
+  font-family: 'Chivo Mono', monospace;
+  font-weight: 700;
+  color: var(--text-color);
+  text-decoration: none;
+  font-size: 0.95rem;
+}
+
+.btn-cv:hover {
+  text-decoration: underline;
+}
+
+/* Project Cards & Frames */
+.project-card {
+  border: 1px solid var(--border-color);
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.project-title {
+  font-family: 'Chivo Mono', monospace;
+  font-size: 1.05rem;
+  margin-bottom: 0.5rem;
+}
+
+.project-desc {
+  font-size: 0.95rem;
+  margin-bottom: 1rem;
+  opacity: 0.8;
+}
+
+.wasm-container, .iframe-container {
+  width: 100%;
+  border: 1px dashed var(--border-color);
+  margin-top: 1rem;
+}
+
+.demo-placeholder {
+  padding: 2rem;
+  text-align: center;
+  font-family: 'Chivo Mono', monospace;
+  opacity: 0.5;
+  font-size: 0.85rem;
+}
+
+.iframe-container iframe {
+  display: block;
+  background: #fff;
+}
+
+/* Blog & Curation Intros */
+.section-intro {
+  margin-bottom: 2rem;
+  opacity: 0.8;
+  line-height: 1.5;
+}
+
+/* Blog Styles */
+.posts-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.post-item {
+  border-left: 2px solid var(--border-color);
+  padding-left: 1.2rem;
+}
+
+.post-meta {
+  font-size: 0.85rem;
+  opacity: 0.6;
+  margin-bottom: 0.4rem;
+  display: flex;
+  gap: 0.8rem;
+}
+
+.post-title {
+  font-family: 'Chivo Mono', monospace;
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+
+.post-title a {
+  color: var(--text-color);
+  text-decoration: none;
+}
+
+.post-title a:hover {
+  text-decoration: underline;
+}
+
+.post-excerpt {
+  font-size: 0.95rem;
+  opacity: 0.8;
+}
+
+/* Curation Styles */
+.curation-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.curation-item {
+  border-bottom: 1px dashed var(--border-color);
+  padding-bottom: 1rem;
+}
+
+.curation-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.curation-title {
+  font-family: 'Chivo Mono', monospace;
+  font-weight: 700;
+  color: var(--text-color);
+  text-decoration: none;
+}
+
+.curation-title:hover {
+  text-decoration: underline;
+}
+
+.curation-date {
+  font-size: 0.85rem;
+  opacity: 0.5;
+}
+
+.curation-details {
+  font-size: 0.85rem;
+  opacity: 0.7;
+  margin-top: 0.3rem;
+}

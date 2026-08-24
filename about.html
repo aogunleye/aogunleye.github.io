@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About — Abdul Ogunleye</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Chivo+Mono:wght@700;900&family=Cutive+Mono&family=Syne+Mono&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Background overlay (Bauhaus cover) -->
+  <div class="bg-cover"></div>
+
+  <div class="container">
+    <!-- Header -->
+    <header class="site-header">
+      <div class="brand">
+        <a href="index.html" class="nav-home"><h1 class="site-title">ABDUL OGUNLEYE</h1></a>
+      </div>
+
+      <!-- Theme Switcher placeholder -->
+      <button id="theme-toggle" aria-label="Toggle theme">
+        <span class="toggle-icon">☀</span>
+      </button>
+    </header>
+
+    <!-- Main Content -->
+    <main class="page-content">
+      <h2 class="page-heading">ABOUT ME</h2>
+
+      <div class="about-grid">
+        <!-- Portrait/Illustration Placeholder -->
+        <div class="portrait-container">
+          <img src="portrait.png" alt="Abdul Ogunleye Illustration" class="portrait-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+          <div class="portrait-placeholder" style="display: none;">
+            <span>[ DRAWING ]</span>
+          </div>
+        </div>
+
+        <!-- Bio & Intentions -->
+        <div class="bio-text">
+          <p>
+            I'm a data science student @ <strong>Université Paris Cité</strong>, data analyst apprentice @ <strong>Cooperative U</strong>, and research assistant @ <strong>INSEP</strong>.
+          </p>
+          <p>
+            By exploring safe/trustworthy AI, I aim to work in research toward technology that serves the common good.
+          </p>
+
+          <div class="contact-box">
+            <p>Contact me at: <a href="mailto:abdul.ogunleye@outlook.fr">abdul.ogunleye@outlook.fr</a></p>
+            <div class="social-links">
+              <a href="https://linkedin.com" target="_blank" rel="noopener">[LINKEDIN]</a>
+              <a href="https://github.com/1ly4bd" target="_blank" rel="noopener">[GITHUB]</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <nav class="sub-nav">
+        <a href="index.html" class="btn-back">← BACK HOME</a>
+      </nav>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+      <div class="footer-links">
+        <a href="mailto:abdul.ogunleye@outlook.fr">EMAIL</a> —
+        <a href="https://github.com/1ly4bd" target="_blank" rel="noopener">GITHUB</a> —
+        <a href="https://linkedin.com" target="_blank" rel="noopener">LINKEDIN</a>
+      </div>
+      <p class="credits">Illustrations by Eden</p>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
