@@ -8,7 +8,6 @@
   --border-color: #333333;
   
   --font-title: 'Syne Mono', monospace;
-  --font-heading: 'Chivo Mono', monospace;
   --font-body: 'Cutive Mono', monospace;
 }
 
@@ -39,8 +38,8 @@ body {
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
-  opacity: 0.15;
-  filter: grayscale(100%);
+  opacity: 0.10;
+  filter: grayscale(100%) blur(4px);
   z-index: -1;
   pointer-events: none;
 }
@@ -63,7 +62,7 @@ body {
 }
 
 .page-heading {
-  font-family: var(--font-heading);
+  font-family: var(--font-body);
   font-weight: 900;
   font-size: 1.6rem;
   margin-bottom: 2.5rem;
@@ -72,7 +71,7 @@ body {
 }
 
 .section-title {
-  font-family: var(--font-heading);
+  font-family: var(--font-body);
   font-size: 1.2rem;
   font-weight: 700;
   margin-bottom: 1.2rem;
@@ -106,19 +105,75 @@ body {
 
 .site-title {
   font-family: var(--font-title);
-  font-size: 1.8rem;
+  font-size: 2rem;
   letter-spacing: 0.08em;
 }
 
-#theme-toggle {
-  position: absolute;
-  right: 0;
-  background: none;
-  border: 1px solid var(--border-color);
+.home-title {
+  font-family: var(--font-title);
+  font-size: 5rem;
+  letter-spacing: 0.08em;
+}
+
+.intro-name {
+    text-align: center;
+  font-family: var(--font-title);
+  font-size: 1.2rem;
+  letter-spacing: 0.08em;
+}
+
+.intro {
+text-align: center;
+}
+
+/* Navigation en grille 2x2 — Style Boutons Massifs */
+.main-nav.nav-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  max-width: 580px; /* Plus large pour imposer la grille */
+  margin: 0 auto;
+  margin-top: 2.5rem; /* Ajuste cette valeur (ex: 3.5rem, 4.5rem, 5rem) selon tes préférences */
+}
+
+.main-nav.nav-grid .btn {
+  font-family: var(--font-body);
+  font-size: 1.15rem;          /* Police plus grosse */
+  letter-spacing: 0.05em;
   color: var(--text-color);
-  padding: 0.4rem 0.8rem;
-  cursor: pointer;
-  font-family: inherit;
+  text-decoration: none;
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  padding: 1.8rem 1rem;         /* Plus de hauteur/remplissage */
+  width: 100%;
+  border: 1px solid var(--text-color); /* Bordures plus épaisses */
+  background: rgba(0, 0, 0, 0.4);      /* Fond légèrement sombré */
+  
+  transition: all 0.15s ease-in-out;
+}
+
+/* Effet Hover Brutaliste */
+.main-nav.nav-grid .btn:hover {
+  background-color: var(--text-color);
+  color: var(--bg-color);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 0 var(--border-color);
+}
+
+/* Adaptatif Mobile */
+@media (max-width: 580px) {
+  .main-nav.nav-grid {
+    grid-template-columns: 1fr;
+    max-width: 320px;
+  }
+  
+  .main-nav.nav-grid .btn {
+    padding: 1.4rem 1rem;
+    font-size: 1.05rem;
+  }
 }
 
 /* Footer & Sub-nav */
@@ -127,7 +182,7 @@ body {
 }
 
 .btn-back {
-  font-family: var(--font-heading);
+  font-family: var(--font-body);
   color: var(--text-color);
   text-decoration: none;
   font-weight: 700;
@@ -166,7 +221,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: var(--font-heading);
+  font-family: var(--font-body);
   font-size: 0.85rem;
   opacity: 0.6;
 }
@@ -198,7 +253,7 @@ body {
 }
 
 .social-links a {
-  font-family: var(--font-heading);
+  font-family: var(--font-body);
   font-weight: 700;
   text-decoration: none;
 }
@@ -239,7 +294,7 @@ body {
 }
 
 .btn-cv {
-  font-family: var(--font-heading);
+  font-family: var(--font-body);
   font-weight: 700;
   color: var(--text-color);
   text-decoration: none;
@@ -258,7 +313,7 @@ body {
 }
 
 .project-title {
-  font-family: var(--font-heading);
+  font-family: var(--font-body);
   font-size: 1.05rem;
   margin-bottom: 0.5rem;
 }
@@ -279,7 +334,7 @@ body {
 .demo-placeholder {
   padding: 2rem;
   text-align: center;
-  font-family: var(--font-heading);
+  font-family: var(--font-body);
   opacity: 0.5;
   font-size: 0.85rem;
 }
@@ -312,7 +367,7 @@ body {
 }
 
 .post-title {
-  font-family: var(--font-heading);
+  font-family: var(--font-body);
   font-size: 1.1rem;
   margin-bottom: 0.5rem;
 }
@@ -353,7 +408,7 @@ body {
 }
 
 .curation-title {
-  font-family: var(--font-heading);
+  font-family: var(--font-body);
   font-weight: 700;
   color: var(--text-color);
   text-decoration: none;
