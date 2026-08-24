@@ -1,11 +1,103 @@
+/* ==========================================================================
+   1. VARIABLES & RESET BASE
+   ========================================================================== */
+:root {
+  --bg-color: #0d0d0d;
+  --text-color: #e6e6e6;
+  --accent-color: #ffffff;
+  --border-color: #333333;
+  
+  --font-title: 'Syne Mono', monospace;
+  --font-heading: 'Chivo Mono', monospace;
+  --font-body: 'Cutive Mono', monospace;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: var(--font-body);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+/* Background Bauhaus overlay */
+.bg-cover {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-image: url('bauhaus.jpg');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  opacity: 0.15;
+  filter: grayscale(100%);
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* ==========================================================================
+   2. LAYOUT COMMON
+   ========================================================================== */
+.container {
+  width: 100%;
+  max-width: 800px;
+  padding: 2rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100vh;
+}
+
+.page-content {
+  margin: 3rem 0;
+}
+
+.page-heading {
+  font-family: var(--font-heading);
+  font-weight: 900;
+  font-size: 1.6rem;
+  margin-bottom: 2.5rem;
+  border-bottom: 1px dashed var(--border-color);
+  padding-bottom: 0.5rem;
+}
+
+.section-title {
+  font-family: var(--font-heading);
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 1.2rem;
+  color: var(--accent-color);
+}
+
+.section-intro {
+  margin-bottom: 2rem;
+  opacity: 0.8;
+  line-height: 1.5;
+}
+
 /* Header */
 .site-header {
   position: relative;
   display: flex;
-  justify-content: center; /* Centre le titre */
+  justify-content: center;
   align-items: center;
   border-bottom: 1px solid var(--border-color);
   padding-bottom: 1.5rem;
+}
+
+.site-header a {
+  color: inherit;
+  text-decoration: none;
 }
 
 .brand {
@@ -13,14 +105,14 @@
 }
 
 .site-title {
-  font-family: 'Syne Mono', monospace;
+  font-family: var(--font-title);
   font-size: 1.8rem;
   letter-spacing: 0.08em;
 }
 
 #theme-toggle {
   position: absolute;
-  right: 0; /* Placé tout à droite pendant que le titre reste centré */
+  right: 0;
   background: none;
   border: 1px solid var(--border-color);
   color: var(--text-color);
@@ -29,38 +121,31 @@
   font-family: inherit;
 }
 
-/* Navigation link for header title */
-.site-header a {
-  color: inherit;
+/* Footer & Sub-nav */
+.sub-nav {
+  margin-top: 3rem;
+}
+
+.btn-back {
+  font-family: var(--font-heading);
+  color: var(--text-color);
   text-decoration: none;
+  font-weight: 700;
+  font-size: 0.9rem;
 }
 
-/* Page Content Common */
-.page-content {
-  margin: 3rem 0;
+.btn-back:hover {
+  text-decoration: underline;
 }
 
-.page-heading {
-  font-family: 'Chivo Mono', monospace;
-  font-weight: 900;
-  font-size: 1.6rem;
-  margin-bottom: 2.5rem;
-  border-bottom: 1px dashed var(--border-color);
-  padding-bottom: 0.5rem;
-}
-
-/* About Layout */
+/* ==========================================================================
+   3. PAGE : ABOUT
+   ========================================================================== */
 .about-grid {
   display: grid;
   grid-template-columns: 220px 1fr;
   gap: 2.5rem;
   align-items: start;
-}
-
-@media (max-width: 650px) {
-  .about-grid {
-    grid-template-columns: 1fr;
-  }
 }
 
 .portrait-container {
@@ -81,7 +166,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: 'Chivo Mono', monospace;
+  font-family: var(--font-heading);
   font-size: 0.85rem;
   opacity: 0.6;
 }
@@ -113,7 +198,7 @@
 }
 
 .social-links a {
-  font-family: 'Chivo Mono', monospace;
+  font-family: var(--font-heading);
   font-weight: 700;
   text-decoration: none;
 }
@@ -122,37 +207,13 @@
   text-decoration: underline;
 }
 
-/* Back button */
-.sub-nav {
-  margin-top: 3rem;
-}
-
-.btn-back {
-  font-family: 'Chivo Mono', monospace;
-  color: var(--text-color);
-  text-decoration: none;
-  font-weight: 700;
-  font-size: 0.9rem;
-}
-
-.btn-back:hover {
-  text-decoration: underline;
-}
-
-/* Portfolio Specifics */
+/* ==========================================================================
+   4. PAGE : PORTFOLIO
+   ========================================================================== */
 .portfolio-section {
   margin-bottom: 3.5rem;
 }
 
-.section-title {
-  font-family: 'Chivo Mono', monospace;
-  font-size: 1.2rem;
-  font-weight: 700;
-  margin-bottom: 1.2rem;
-  color: var(--accent-color);
-}
-
-/* Tags List */
 .tags-list {
   list-style: none;
   display: flex;
@@ -167,7 +228,6 @@
   background: rgba(255, 255, 255, 0.03);
 }
 
-/* CV Links */
 .cv-intro {
   margin-bottom: 1rem;
 }
@@ -179,7 +239,7 @@
 }
 
 .btn-cv {
-  font-family: 'Chivo Mono', monospace;
+  font-family: var(--font-heading);
   font-weight: 700;
   color: var(--text-color);
   text-decoration: none;
@@ -190,7 +250,6 @@
   text-decoration: underline;
 }
 
-/* Project Cards & Frames */
 .project-card {
   border: 1px solid var(--border-color);
   padding: 1.5rem;
@@ -199,7 +258,7 @@
 }
 
 .project-title {
-  font-family: 'Chivo Mono', monospace;
+  font-family: var(--font-heading);
   font-size: 1.05rem;
   margin-bottom: 0.5rem;
 }
@@ -210,7 +269,8 @@
   opacity: 0.8;
 }
 
-.wasm-container, .iframe-container {
+.wasm-container,
+.iframe-container {
   width: 100%;
   border: 1px dashed var(--border-color);
   margin-top: 1rem;
@@ -219,7 +279,7 @@
 .demo-placeholder {
   padding: 2rem;
   text-align: center;
-  font-family: 'Chivo Mono', monospace;
+  font-family: var(--font-heading);
   opacity: 0.5;
   font-size: 0.85rem;
 }
@@ -229,14 +289,9 @@
   background: #fff;
 }
 
-/* Blog & Curation Intros */
-.section-intro {
-  margin-bottom: 2rem;
-  opacity: 0.8;
-  line-height: 1.5;
-}
-
-/* Blog Styles */
+/* ==========================================================================
+   5. PAGE : BLOG
+   ========================================================================== */
 .posts-list {
   display: flex;
   flex-direction: column;
@@ -257,7 +312,7 @@
 }
 
 .post-title {
-  font-family: 'Chivo Mono', monospace;
+  font-family: var(--font-heading);
   font-size: 1.1rem;
   margin-bottom: 0.5rem;
 }
@@ -276,7 +331,9 @@
   opacity: 0.8;
 }
 
-/* Curation Styles */
+/* ==========================================================================
+   6. PAGE : CURATION
+   ========================================================================== */
 .curation-list {
   list-style: none;
   display: flex;
@@ -296,7 +353,7 @@
 }
 
 .curation-title {
-  font-family: 'Chivo Mono', monospace;
+  font-family: var(--font-heading);
   font-weight: 700;
   color: var(--text-color);
   text-decoration: none;
@@ -315,4 +372,13 @@
   font-size: 0.85rem;
   opacity: 0.7;
   margin-top: 0.3rem;
+}
+
+/* ==========================================================================
+   7. MEDIA QUERIES
+   ========================================================================== */
+@media (max-width: 650px) {
+  .about-grid {
+    grid-template-columns: 1fr;
+  }
 }
