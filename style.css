@@ -1,0 +1,30 @@
+/* Header */
+.site-header {
+  position: relative;
+  display: flex;
+  justify-content: center; /* Centre le titre */
+  align-items: center;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 1.5rem;
+}
+
+.brand {
+  text-align: center;
+}
+
+.site-title {
+  font-family: 'Syne Mono', monospace;
+  font-size: 1.8rem;
+  letter-spacing: 0.08em;
+}
+
+#theme-toggle {
+  position: absolute;
+  right: 0; /* Placé tout à droite pendant que le titre reste centré */
+  background: none;
+  border: 1px solid var(--border-color);
+  color: var(--text-color);
+  padding: 0.4rem 0.8rem;
+  cursor: pointer;
+  font-family: inherit;
+}
