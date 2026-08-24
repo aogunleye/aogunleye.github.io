@@ -126,53 +126,73 @@ body {
 text-align: center;
 }
 
-/* Navigation en grille 2x2 — Style Boutons Massifs */
-.main-nav.nav-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1.5rem;
-  max-width: 580px; /* Plus large pour imposer la grille */
-  margin: 0 auto;
-  margin-top: 2.5rem; /* Ajuste cette valeur (ex: 3.5rem, 4.5rem, 5rem) selon tes préférences */
-}
-
-.main-nav.nav-grid .btn {
-  font-family: var(--font-body);
-  font-size: 1.15rem;          /* Police plus grosse */
-  letter-spacing: 0.05em;
-  color: var(--text-color);
-  text-decoration: none;
-  
+/* ==========================================================================
+   NAVIGATION MATRICIELLE 2x2
+   ========================================================================== */
+.matrix-container {
   display: flex;
   align-items: center;
   justify-content: center;
-  
-  padding: 1.8rem 1rem;         /* Plus de hauteur/remplissage */
-  width: 100%;
-  border: 1px solid var(--text-color); /* Bordures plus épaisses */
-  background: rgba(0, 0, 0, 0.4);      /* Fond légèrement sombré */
-  
-  transition: all 0.15s ease-in-out;
+  gap: 1.2rem;
+  margin: 3.5rem auto 0 auto;
+  max-width: 520px;
 }
 
-/* Effet Hover Brutaliste */
-.main-nav.nav-grid .btn:hover {
+/* Structure des crochets mathématiques */
+.bracket {
+  width: 14px;
+  align-self: stretch; /* Le crochet s'étire sur toute la hauteur de la matrice */
+  border: 2px solid var(--text-color);
+}
+
+.left-bracket {
+  border-right: none;
+}
+
+.right-bracket {
+  border-left: none;
+}
+
+/* Grille 2x2 interne */
+.matrix-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.8rem 2.5rem; /* Espace vertical et horizontal entre les éléments */
+  padding: 0.8rem 0;
+}
+
+/* Liens / Éléments de la matrice */
+.matrix-item {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--text-color);
+  text-decoration: none;
+  text-align: center;
+  padding: 0.8rem 1.2rem;
+  letter-spacing: 0.05em;
+  transition: all 0.2s ease;
+}
+
+/* Effet Hover au survol d'une valeur de la matrice */
+.matrix-item:hover {
   background-color: var(--text-color);
   color: var(--bg-color);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 0 var(--border-color);
 }
 
-/* Adaptatif Mobile */
-@media (max-width: 580px) {
-  .main-nav.nav-grid {
-    grid-template-columns: 1fr;
-    max-width: 320px;
+/* Adaptatif pour mobile */
+@media (max-width: 500px) {
+  .matrix-container {
+    gap: 0.8rem;
   }
   
-  .main-nav.nav-grid .btn {
-    padding: 1.4rem 1rem;
-    font-size: 1.05rem;
+  .matrix-grid {
+    gap: 1rem 1.2rem;
+  }
+
+  .matrix-item {
+    font-size: 0.95rem;
+    padding: 0.6rem 0.8rem;
   }
 }
 
