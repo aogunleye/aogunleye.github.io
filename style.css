@@ -195,7 +195,9 @@ text-align: center;
 .matrix-item .calc-stream {
   position: absolute;
   font-family: var(--font-heading);
-  font-size: 0.9rem;
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--text-color);
   color: inherit; /* Couleur du texte pendant le calcul */
   pointer-events: none;
 }
