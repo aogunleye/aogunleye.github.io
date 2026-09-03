@@ -89,30 +89,36 @@
         }, 50);
 
         setTimeout(() => {
-          clearInterval(interval);
-          stream.style.display = 'none';
-          text.style.opacity = '1';
+  clearInterval(interval);
+  stream.style.display = 'none';
+  text.style.opacity = '1';
 
-          // Décryptage fluide appliqué directement sur le texte d'origine
-          let iteration = 0;
-          const decryptInterval = setInterval(() => {
-            text.textContent = labelText
-              .split('')
-              .map((char, index) => {
-                if (char === ' ') return ' ';
-                if (index < iteration) return labelText[index];
-                return chars[Math.floor(Math.random() * chars.length)];
-              })
-              .join('');
+  // --- CODE DU DÉCRYPTAGE (DU MILIEU VERS LES BORDS) ---
+  let radius = 0;
+  const center = Math.floor(labelText.length / 2);
 
-            if (iteration >= labelText.length) {
-              clearInterval(decryptInterval);
-              text.textContent = labelText;
-            }
-            iteration += 1 / 4; // 5 lettres par seconde
-          }, 50);
+  const decryptInterval = setInterval(() => {
+    text.textContent = labelText
+      .split('')
+      .map((char, index) => {
+        if (char === ' ') return ' ';
+        // Si l'index est dans le rayon du centre, on affiche la bonne lettre
+        if (Math.abs(index - center) <= radius) {
+          return labelText[index];
+        }
+        return chars[Math.floor(Math.random() * chars.length)];
+      })
+      .join('');
 
-        }, 2000);
+    if (radius >= Math.max(center, labelText.length - center)) {
+      clearInterval(decryptInterval);
+      text.textContent = labelText;
+    }
+
+    radius += 1 / 4; // Vitesse d'élargissement du centre vers les bords
+  }, 50);
+
+}, 2000);
       });
 
       // Enregistrement spécifique à cet onglet
