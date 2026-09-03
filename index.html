@@ -92,27 +92,32 @@
   stream.style.display = 'none';
   text.style.opacity = '1';
 
-  let radius = 0;
+  let radius = 0; // Taille de la zone visible
   const center = Math.floor(labelText.length / 2);
 
   const decryptInterval = setInterval(() => {
     text.textContent = labelText
       .split('')
       .map((char, index) => {
-        if (char === ' ') return ' ';
-        if (Math.abs(index - center) <= radius) {
-          return labelText[index];
+        // En dehors du rayon : complètement invisible (chaîne vide)
+        if (Math.abs(index - center) > Math.floor(radius)) {
+          return '';
         }
-        return chars[Math.floor(Math.random() * chars.length)];
+        // À la frontière du rayon : symbole aléatoire qui change
+        if (Math.abs(index - center) === Math.floor(radius) && Math.abs(index - center) !== 0) {
+          return chars[Math.floor(Math.random() * chars.length)];
+        }
+        // Au cœur du rayon déjà révélé : la vraie lettre
+        return labelText[index];
       })
       .join('');
 
-    if (radius >= Math.max(center, labelText.length - center)) {
+    if (radius >= Math.max(center, labelText.length - center) + 1) {
       clearInterval(decryptInterval);
       text.textContent = labelText;
     }
 
-    radius += 1 / 4; 
+    radius += 1 / 3; // Vitesse d'apparition des caractères
   }, 50);
 
 }, 2000);
