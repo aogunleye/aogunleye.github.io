@@ -68,6 +68,42 @@
 </div>
       <small><p class="credits">background from <i>Burning From The Inside</i> by Bauhaus</p></small>
     </footer>
+    
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const matrixItems = document.querySelectorAll('.matrix-item');
+    const hasVisited = sessionStorage.getItem('visitedIndex');
 
+    if (!hasVisited) {
+      // 1. Première arrivée sur l'onglet : animation
+      matrixItems.forEach((item) => {
+        const labelText = item.textContent;
+        item.innerHTML = `<span class="item-text">${labelText}</span><span class="calc-stream"></span>`;
+        
+        const stream = item.querySelector('.calc-stream');
+        const text = item.querySelector('.item-text');
+
+        const interval = setInterval(() => {
+          stream.textContent = Math.random().toFixed(4);
+        }, 50);
+
+        setTimeout(() => {
+          clearInterval(interval);
+          stream.style.display = 'none';
+          text.style.opacity = '1';
+        }, 1200);
+      });
+
+      // Enregistrement spécifique à cet onglet
+      sessionStorage.setItem('visitedIndex', 'true');
+    } else {
+      // 2. Navigation au sein du même onglet : affichage direct
+      matrixItems.forEach((item) => {
+        const labelText = item.textContent;
+        item.innerHTML = `<span class="item-text" style="opacity: 1;">${labelText}</span>`;
+      });
+    }
+  });
+</script>
 </body>
 </html>
