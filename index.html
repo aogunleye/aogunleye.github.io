@@ -85,13 +85,13 @@
 
         const interval = setInterval(() => {
           stream.textContent = Math.random().toFixed(4);
-        }, 50);
+        }, 100);
 
         setTimeout(() => {
           clearInterval(interval);
           stream.style.display = 'none';
           text.style.opacity = '1';
-        }, 1200);
+        }, 2000);
       });
 
       // Enregistrement spécifique à cet onglet
