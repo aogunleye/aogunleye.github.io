@@ -70,40 +70,58 @@
     </footer>
     
 <script>
-document.addEventListener("DOMContentLoaded", () => {
-const matrixItems = document.querySelectorAll('.matrix-item');
-const hasVisited = sessionStorage.getItem('visitedIndex');
+  document.addEventListener("DOMContentLoaded", () => {
+    const matrixItems = document.querySelectorAll('.matrix-item');
+    const hasVisited = sessionStorage.getItem('visitedIndex');
+    const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%&*';
 
-if (!hasVisited) {
+    if (!hasVisited) {
+      // 1. Première arrivée sur l'onglet : animation continue
+      matrixItems.forEach((item) => {
+        const labelText = item.textContent;
+        // On n'utilise qu'un seul élément visible dès le départ
+        item.innerHTML = `<span class="calc-stream"></span>`;
+        const stream = item.querySelector('.calc-stream');
 
-// 1. Première arrivée sur l'onglet : animation
-matrixItems.forEach((item) => {
-const labelText = item.textContent;
-item.innerHTML = `<span class="item-text">${labelText}</span><span class="calc-stream"></span>`;
-const stream = item.querySelector('.calc-stream');
-const text = item.querySelector('.item-text');
-const interval = setInterval(() => {
-stream.textContent = Math.random().toFixed(4);
-}, 50);
+        // Phase 1 : Défilement pur de numéros (1.5s)
+        const interval = setInterval(() => {
+          stream.textContent = Math.random().toFixed(4);
+        }, 50);
 
-setTimeout(() => {
-clearInterval(interval);
-stream.style.display = 'none';
-text.style.opacity = '1';
-}, 2000);
-});
+        setTimeout(() => {
+          clearInterval(interval);
 
-// Enregistrement spécifique à cet onglet
-sessionStorage.setItem('visitedIndex', 'true');
-} else {
+          // Phase 2 : Transition fluide vers le texte final (20 fois/sec)
+          let iteration = 0;
+          const decryptInterval = setInterval(() => {
+            stream.textContent = labelText
+              .split('')
+              .map((char, index) => {
+                if (char === ' ') return ' ';
+                if (index < iteration) return labelText[index];
+                return chars[Math.floor(Math.random() * chars.length)];
+              })
+              .join('');
 
-// 2. Navigation au sein du même onglet : affichage direct
-matrixItems.forEach((item) => {
-const labelText = item.textContent;
-item.innerHTML = `<span class="item-text" style="opacity: 1;">${labelText}</span>`;
-});
-}
-});
+            if (iteration >= labelText.length) {
+              clearInterval(decryptInterval);
+              stream.textContent = labelText;
+            }
+            iteration += 1 / 2; // Révèle une lettre toutes les 100 ms
+          }, 50);
+
+        }, 2000); // Durée des chiffres avant la métamorphose
+      });
+
+      sessionStorage.setItem('visitedIndex', 'true');
+    } else {
+      // 2. Navigation au sein du même onglet : affichage direct
+      matrixItems.forEach((item) => {
+        const labelText = item.textContent;
+        item.innerHTML = `<span class="calc-stream">${labelText}</span>`;
+      });
+    }
+  });
 </script>
 </body>
 </html>
