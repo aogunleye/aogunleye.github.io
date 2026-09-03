@@ -180,6 +180,26 @@ text-align: center;
   color: var(--bg-color);
 }
 
+.matrix-item {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.matrix-item .item-text {
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.matrix-item .calc-stream {
+  position: absolute;
+  font-family: 'Chivo Mono', monospace;
+  font-size: 0.9rem;
+  color: #00ff66; /* Couleur du texte pendant le calcul */
+  pointer-events: none;
+}
+
 /* Adaptatif pour mobile */
 @media (max-width: 500px) {
   .matrix-container {
