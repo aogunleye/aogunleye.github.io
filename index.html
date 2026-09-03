@@ -73,31 +73,53 @@
   document.addEventListener("DOMContentLoaded", () => {
     const matrixItems = document.querySelectorAll('.matrix-item');
     const hasVisited = sessionStorage.getItem('visitedIndex');
+    const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%&*';
+
+    // Fonction qui gère l'effet de décryptage
+    function startDecryptEffect(element, finalText) {
+      let iteration = 0;
+      const interval = setInterval(() => {
+        element.textContent = finalText
+          .split('')
+          .map((char, index) => {
+            if (index < iteration) return finalText[index];
+            if (char === ' ') return ' ';
+            return chars[Math.floor(Math.random() * chars.length)];
+          })
+          .join('');
+
+        if (iteration >= finalText.length) clearInterval(interval);
+        iteration += 1 / 3;
+      }, 30);
+    }
 
     if (!hasVisited) {
-      // 1. Première arrivée sur l'onglet : animation
+      // 1. Première arrivée : animation des numéros
       matrixItems.forEach((item) => {
         const labelText = item.textContent;
-        item.innerHTML = `<span class="item-text">${labelText}</span><span class="calc-stream"></span>`;
+        item.innerHTML = `<span class="item-text"></span><span class="calc-stream"></span>`;
         
         const stream = item.querySelector('.calc-stream');
         const text = item.querySelector('.item-text');
 
-        const interval = setInterval(() => {
+        const streamInterval = setInterval(() => {
           stream.textContent = Math.random().toFixed(4);
         }, 50);
 
+        // Fin de l'animation des numéros (après 2 secondes)
         setTimeout(() => {
-          clearInterval(interval);
+          clearInterval(streamInterval);
           stream.style.display = 'none';
           text.style.opacity = '1';
+          
+          // Lancement du décryptage
+          startDecryptEffect(text, labelText);
         }, 2000);
       });
 
-      // Enregistrement spécifique à cet onglet
       sessionStorage.setItem('visitedIndex', 'true');
     } else {
-      // 2. Navigation au sein du même onglet : affichage direct
+      // 2. Navigation ultérieure : affichage direct
       matrixItems.forEach((item) => {
         const labelText = item.textContent;
         item.innerHTML = `<span class="item-text" style="opacity: 1;">${labelText}</span>`;
