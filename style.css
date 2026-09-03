@@ -194,9 +194,10 @@ text-align: center;
 
 .matrix-item .calc-stream {
   position: absolute;
-  font-family: 'Chivo Mono', monospace;
-  font-size: 0.9rem;
-  color: #00ff66; /* Couleur du texte pendant le calcul */
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--text-color); /* Couleur du texte pendant le calcul */
   pointer-events: none;
 }
 
