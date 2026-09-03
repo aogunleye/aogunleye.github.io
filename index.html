@@ -76,7 +76,6 @@
     const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%&*';
 
     if (!hasVisited) {
-      // 1. Première arrivée sur l'onglet : animation (ton code d'origine exact)
       matrixItems.forEach((item) => {
         const labelText = item.textContent;
         item.innerHTML = `<span class="item-text">${labelText}</span><span class="calc-stream"></span>`;
@@ -93,7 +92,6 @@
   stream.style.display = 'none';
   text.style.opacity = '1';
 
-  // --- CODE DU DÉCRYPTAGE (DU MILIEU VERS LES BORDS) ---
   let radius = 0;
   const center = Math.floor(labelText.length / 2);
 
@@ -102,7 +100,6 @@
       .split('')
       .map((char, index) => {
         if (char === ' ') return ' ';
-        // Si l'index est dans le rayon du centre, on affiche la bonne lettre
         if (Math.abs(index - center) <= radius) {
           return labelText[index];
         }
@@ -115,16 +112,14 @@
       text.textContent = labelText;
     }
 
-    radius += 1 / 4; // Vitesse d'élargissement du centre vers les bords
+    radius += 1 / 4; 
   }, 50);
 
 }, 2000);
       });
 
-      // Enregistrement spécifique à cet onglet
       sessionStorage.setItem('visitedIndex', 'true');
     } else {
-      // 2. Navigation au sein du même onglet : affichage direct (ton code d'origine exact)
       matrixItems.forEach((item) => {
         const labelText = item.textContent;
         item.innerHTML = `<span class="item-text" style="opacity: 1;">${labelText}</span>`;
