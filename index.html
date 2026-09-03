@@ -70,63 +70,40 @@
     </footer>
     
 <script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const matrixItems = document.querySelectorAll('.matrix-item');
-    const hasVisited = sessionStorage.getItem('visitedIndex');
-    const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%&*';
+document.addEventListener("DOMContentLoaded", () => {
+const matrixItems = document.querySelectorAll('.matrix-item');
+const hasVisited = sessionStorage.getItem('visitedIndex');
 
-    if (!hasVisited) {
-      // 1. Première arrivée sur l'onglet : animation des numéros
-      matrixItems.forEach((item) => {
-        const labelText = item.textContent;
-        item.innerHTML = `<span class="item-text">${labelText}</span><span class="calc-stream"></span>`;
-        
-        const stream = item.querySelector('.calc-stream');
-        const text = item.querySelector('.item-text');
+if (!hasVisited) {
 
-        // Animation 1 : Défilement des numéros
-        const interval = setInterval(() => {
-          stream.textContent = Math.random().toFixed(4);
-        }, 50);
+// 1. Première arrivée sur l'onglet : animation
+matrixItems.forEach((item) => {
+const labelText = item.textContent;
+item.innerHTML = `<span class="item-text">${labelText}</span><span class="calc-stream"></span>`;
+const stream = item.querySelector('.calc-stream');
+const text = item.querySelector('.item-text');
+const interval = setInterval(() => {
+stream.textContent = Math.random().toFixed(4);
+}, 50);
 
-        setTimeout(() => {
-          // Arrêt de l'animation des numéros
-          clearInterval(interval);
-          stream.style.display = 'none';
-          text.style.opacity = '1';
+setTimeout(() => {
+clearInterval(interval);
+stream.style.display = 'none';
+text.style.opacity = '1';
+}, 2000);
+});
 
-          // Animation 2 : Décryptage du texte
-          let iteration = 0;
-          const decryptInterval = setInterval(() => {
-            text.textContent = labelText
-              .split('')
-              .map((char, index) => {
-                if (char === ' ') return ' ';
-                if (index < iteration) return labelText[index];
-                return chars[Math.floor(Math.random() * chars.length)];
-              })
-              .join('');
+// Enregistrement spécifique à cet onglet
+sessionStorage.setItem('visitedIndex', 'true');
+} else {
 
-            if (iteration >= labelText.length) {
-              clearInterval(decryptInterval);
-              text.textContent = labelText;
-            }
-            iteration += 1/2;
-          }, 50);
-
-        }, 2000);
-      });
-
-      // Enregistrement spécifique à cet onglet
-      sessionStorage.setItem('visitedIndex', 'true');
-    } else {
-      // 2. Navigation au sein du même onglet : affichage direct
-      matrixItems.forEach((item) => {
-        const labelText = item.textContent;
-        item.innerHTML = `<span class="item-text" style="opacity: 1;">${labelText}</span>`;
-      });
-    }
-  });
+// 2. Navigation au sein du même onglet : affichage direct
+matrixItems.forEach((item) => {
+const labelText = item.textContent;
+item.innerHTML = `<span class="item-text" style="opacity: 1;">${labelText}</span>`;
+});
+}
+});
 </script>
 </body>
 </html>
