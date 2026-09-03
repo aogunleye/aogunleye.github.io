@@ -89,38 +89,48 @@
 
         setTimeout(() => {
   clearInterval(interval);
-  stream.style.display = 'none';
-  text.style.opacity = '1';
 
   let radius = 0;
   const center = Math.floor(labelText.length / 2);
 
   const decryptInterval = setInterval(() => {
-    text.textContent = labelText
+    const currentRadius = Math.floor(radius);
+
+    // 1. Construit le texte qui s'étend depuis le milieu
+    const textPart = labelText
       .split('')
       .map((char, index) => {
-        // En dehors du rayon : espace insécable pour garder la largeur physique fixe
-        if (Math.abs(index - center) > Math.floor(radius)) {
-          return '\u00A0';
-        }
-        // À la frontière qui s'agrandit : caractère aléatoire
-        if (Math.abs(index - center) === Math.floor(radius) && radius < center) {
+        if (Math.abs(index - center) > currentRadius) return '';
+        if (Math.abs(index - center) === currentRadius && currentRadius < center) {
           return chars[Math.floor(Math.random() * chars.length)];
         }
-        // Au centre déjà révélé : la vraie lettre
         return labelText[index];
       })
       .join('');
 
-    if (radius >= Math.max(center, labelText.length - center) + 1) {
-      clearInterval(decryptInterval);
-      text.textContent = labelText;
+    // 2. Calcule les chiffres restants sur les bords pour effacer le trou
+    const digitsNeeded = Math.max(0, 6 - currentRadius * 2);
+    const sideDigits = Math.floor(digitsNeeded / 2);
+
+    if (digitsNeeded > 0) {
+      const leftNum = Math.floor(Math.random() * Math.pow(10, sideDigits)).toString().padStart(sideDigits, '0');
+      const rightNum = Math.floor(Math.random() * Math.pow(10, sideDigits)).toString().padStart(sideDigits, '0');
+      stream.textContent = `${leftNum}${textPart}${rightNum}`;
+    } else {
+      stream.textContent = textPart;
     }
 
-    radius += 0.25; // ajuster pour régler la vitesse d'apparition
+    // 3. Arrêt une fois le mot complété
+    if (radius >= Math.max(center, labelText.length - center) + 1) {
+      clearInterval(decryptInterval);
+      stream.textContent = labelText;
+    }
+
+    radius += 0.25; // Durée de l'extension : environ 1 seconde
   }, 50);
 
-}, 1200);
+}, 1500);
+
       });
 
       sessionStorage.setItem('visitedIndex', 'true');
