@@ -31,6 +31,26 @@
         <h3 class="section-title">completed projects</h3>
         <div class="posts-list">
 
+          <!-- RegiBERT -->
+          <article class="post-item">
+            <div class="post-meta">
+              <time datetime="2026">2026</time>
+            </div>
+            <h3 class="post-title">RegiBERT: Continuous Modeling of French Linguistic Registers via Label Distribution Learning, Linear Probing and UMAP Projection</h3>
+            <p class="post-excerpt">
+              The detection of linguistic registers has historically suffered from rigid classification approaches (hard labels). 
+              However, natural language is inherently nuanced and ambiguous. 
+              This project introduces RegiBERT, a CamemBERT-based model designed to capture this linguistic continuity. 
+              Rather than assigning a single exclusive class to a sentence, the model learned to predict a probability distribution (soft labels) using the annotated TrémoLo corpus. 
+              RegiBERT achieves a validation KL divergence loss of 0.365, a MAE of 0.179, and an overall accuracy of 84.5%. 
+              Layer-wise probing further reveals that stylistic nuance crystallizes in deeper transformer representations, peaking at layer 12 (R² = 0.556). 
+              A 3D UMAP projection calibrated on the validation subdataset confirms this structure geometrically, revealing a continuous manifold where the standard register smoothly connects the formal and colloquial clusters.
+            </p>
+            <div class="project-links">
+              <a href="https://github.com/aogunleye/RegiBERT_French_Register_Classification" target="_blank" rel="noopener" class="project-link">[ github repo ]</a>
+            </div>
+          </article>
+
           <!-- Project: JL Lemma -->
           <article class="post-item">
             <div class="post-meta">
@@ -102,27 +122,18 @@
       <section class="portfolio-section">
         <h3 class="section-title">ongoing projects</h3>
         <div class="posts-list">
-
-          <!-- Ongoing: RegiBERT -->
-          <article class="post-item">
-            <div class="post-meta">
-              <time datetime="2026">2026 - present</time>
-            </div>
-            <h3 class="post-title">RegiBERT: Continuous Modeling of French Linguistic Registers on TrémoLo via Label Distribution Learning and Topological Probing</h3>
-            <p class="post-excerpt">
-              Real-time NLP & 3D visualization pipeline modeling french linguistic register ambiguity (Soutenu (Formal), Courant (Standard), Familier (Colloquial)) using Label Distribution Learning (KL Divergence) on CamemBERT embeddings trained on TREMOlo dataset. Features layer-wise topological probing, TCL-calibrated UMAP reduction, real-time Bluesky stream ingestion via FastAPI/WebSockets, and a 3D WebGL latent space visualization built with Three.js.
-            </p>
-          </article>
           
-          <!-- Ongoing 1: Class Bias Research -->
+          <!-- Ongoing 1: FROM SCRATCH -->
           <article class="post-item">
             <div class="post-meta">
               <time datetime="2026">2026 - present</time>
             </div>
-            <h3 class="post-title">Geometric Quantification of Semantic Class Bias
+            <h3 class="post-title">MLP, CNN and Transformer implementation from scratch
             </h3>
             <p class="post-excerpt">
-              Comparative diachronic research evaluating latent socioeconomic and class stereotypes embedded across historical corpora. Triangulates static baselines (Word2Vec) against native Transformers (CamemBERT-base) and domain-adapted models (CamemBERT-Gutenberg) using a validated lexicographical dictionary (WOLF/TLFi) to analyze how continued pre-training revives structural class biases in downstream masked language modeling tasks.
+            The goal of this project is to learn the fundamental architectures of deep learning (MLP, CNN,
+            Transformer) by an implementation entirely in NumPy (forward and backward passes coded and derived by
+            hand), without frameworks such as PyTorch or TensorFlow. My studies will be mostly based on Standford's cs231n notes.           
             </p>
           </article>
 
@@ -136,16 +147,6 @@
               Production-ready MLOps infrastructure predicting daily box-office success via TMDB and XGBoost while auditing algorithmic bias across demographic cohorts using Fairlearn and Evidently AI. Features automated daily ingestion, data drift detection, continuous model retraining, automated promotion via MLflow, and full IAC deployment with Terraform and GitHub Actions onto an interactive Streamlit dashboard. <i>(Collab: Lina Lebbah)</i>
             </p>
           </article>
-
-          <!-- Ongoing 3: INSEP -->
-           <!-- <article class="post-item">
-            <div class="post-meta">
-              <time datetime="2026">2026 - present</time>
-            </div>
-            <h3 class="post-title">INSEP Research Assistance</h3>
-            <p class="post-excerpt">
-              Collaborative research initiative with INSEP scientists.</p>
-          </article> -->
           
 
         </div>
